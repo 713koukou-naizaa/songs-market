@@ -13,12 +13,19 @@ $localPassword="root";
 $tableName="songs_table";
 
 // lakartxela
-// print("Trying to connect to database $lakartxelaCurrentDB on $lakartxelaHost...\n");
+
+// print "DEBUG START" . "<br>";
+// print "Configuring lakartxela connection..." . "<br>";
+// print "Trying to connect to database $lakartxelaCurrentDB on $lakartxelaHost..." . "<br>";
 // $conn = mysqli_connect($lakartxelaHost, $lakartxelaUsername, $lakartxelaPassword, $lakartxelaCurrentDB) or die("Could not connect: " . mysqli_error($conn));
-// print("Connected successfully\n");
+// print "Connected successfully" . "<br>";
+// print "DEBUG END" . "<br>";
 
 // local
+print "DEBUG START" . "<br>";
+print "Configuring local connection..." . "<br>";
 print "Trying to connect to database $localCurrentDB on $localHost..." . "<br>";
 $conn = mysqli_connect($localHost, $localUsername, $localPassword, $localCurrentDB) or die("Could not connect: " . mysqli_error($conn));
-print "Connected successfully" . "<br>" . "<br>";
+print "Connected successfully" . "<br>";
+print "DEBUG END" . "<br>";
 

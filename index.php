@@ -22,23 +22,29 @@ mysqli_close($conn);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Songs Project</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 
 <body>
     <h1>Songs</h1>
-    
-    <?php if(!empty($rows)): ?>
-        <ul>
-            <?php foreach ($rows as $row): ?>
-                <li class="item">
-                    <?php echo $row['title'] . " - " . $row['artist']; ?>
-                    <button class="clickable">View details</button>
-                </li>
-            <?php endforeach; ?>
-        </ul>
-    <?php else: ?>
-        <p>No data found.</p>
-    <?php endif; ?>
+    <div class="container">
+        <?php
+        foreach ($rows as $row) {
+            echo "<div class='song'>";
+            $id = $row['id'];
+            $title = $row['title'];
+            $artist = $row['artist'];
+            $img_path = $row['icon_path'];
+            echo "<img class='thumbnail' src='{$img_path}' alt='{$title} icon'>";
+            echo "<span>{$id} - [{$artist}] {$title}</span>";
+            echo "<button class='detailsButton open-modal'
+            data-id='{$id}'
+            data-title='{$title}'
+            data-artist='{$artist}'>View Details</button>";
+            echo "</div>";
+        }
+        ?>
+    </div>
 
     <script src="script.js"></script>
 </body>
