@@ -34,3 +34,16 @@ document.addEventListener('DOMContentLoaded', function() {
         if (event.target === modal) { modal.style.display = 'none'; }
     });
 });
+
+function showAddToCartPopup() {
+    document.getElementById('addToCartPopup').style.display = 'block';
+    const songTitle = document.getElementsByClassName('songDetails')[0].getAttribute('data-title');
+    const songPrice = document.getElementsByClassName('songDetails')[0].getAttribute('data-price');
+
+    document.getElementById('addToCartPopupText').innerHTML = 'Added ' + songTitle + ' to cart for ' + songPrice + '€';
+
+    setTimeout(function() {
+        document.getElementById('addToCartPopup').style.display = 'none';
+    }, 1500);
+}
+

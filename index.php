@@ -33,6 +33,7 @@ mysqli_close($conn);
     <title>Songs market</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <script src="script.js"></script>
 </head>
 
 <body>
@@ -41,32 +42,43 @@ mysqli_close($conn);
     <h1>Songs</h1>
     <div class="container">
         <?php
+        if($rows!=[])
+        {
+            foreach ($rows as $row) {
+                echo "<div class='song'>";
+                    echo "<div class='open-modal songCard'>";
+                        $id = $row['id'];
+                        $title = $row['title'];
+                        $artist = $row['artist'];
+                        $price = $row['price'];
+                        $img_path = $row['icon_path'];
+                        $duration = $row['duration'];
         
-        foreach ($rows as $row) {
-            echo "<div class='open-modal songCard'>";
-                $id = $row['id'];
-                $title = $row['title'];
-                $artist = $row['artist'];
-                $price = $row['price'];
-                $img_path = $row['icon_path'];
-                $duration = $row['duration'];
+                        echo "<div class='songDetails'
+                        data-title='{$title}'
+                        data-artist='{$artist}'
+                        data-price='{$price}'
+                        data-img='{$img_path}'
+                        data-duration='{$duration}'>
+                            Artist: {$artist}<br>Title: {$title}
+                        </div>";
+        
+                        echo "<div class='songImg'>
+                            <img class='thumbnail' src='{$img_path}' alt='{$title} icon'>
+                        </div>";
+                    echo "</div>";
 
-                echo "<div class='songDetails'
-                data-title='{$title}'
-                data-artist='{$artist}'
-                data-price='{$price}'
-                data-img='{$img_path}'
-                data-duration='{$duration}'>
-                    Artist: {$artist}<br>Title: {$title}
-                </div>";
-
-                echo "<div class='songImg'>
-                    <img class='thumbnail' src='{$img_path}' alt='{$title} icon'>
-                </div>";
-            echo "</div>";
-        }
+                    echo "<form ACTION='addToCart.php' METHOD='POST'>
+                                <input type='hidden' name='id' value='{$row['id']}'>
+                                <input class ='addToCart' type='submit' value='Add to cart' onclick=showAddToCartPopup()>
+                            </form>";
+                echo "</div>";
+            }
+        } else { echo "No songs found"; }
         ?>
     </div>
+
+    <a href="cart.php">View cart</a>
 
     <div id="myModal" class="modal">
         <div class="modal-content">
@@ -76,7 +88,12 @@ mysqli_close($conn);
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <div id="addToCartPopup" class="addToCartPopup">
+        <div class="addToCartPopup-content">
+            <span class="close">&times;</span>
+            <p id="addToCartPopupText"></p>
+        </div>
+    </div>
 </body>
 </html>
 
