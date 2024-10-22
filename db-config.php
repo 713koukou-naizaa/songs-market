@@ -5,7 +5,7 @@ $lakartxelaHost="lakartxela.iutbayonne.univ-pau.fr";
 $lakartxelaUsername="ehamid_pro";
 $lakartxelaPassword="ehamid_pro";
 
-$localCurrentDB="songs-project";
+$localCurrentDB="songs-market";
 $localHost="localhost";
 $localUsername="root";
 $localPassword="root";
@@ -22,10 +22,10 @@ $tableName="songs_table";
 // print "DEBUG END" . "<br>";
 
 // local
-print "DEBUG START" . "<br>";
-print "Configuring local connection..." . "<br>";
-print "Trying to connect to database $localCurrentDB on $localHost..." . "<br>";
+// print "DEBUG START" . "<br>";
+// print "Configuring local connection..." . "<br>";
+// print "Trying to connect to database $localCurrentDB on $localHost..." . "<br>";
 $conn = mysqli_connect($localHost, $localUsername, $localPassword, $localCurrentDB) or die("Could not connect: " . mysqli_error($conn));
-print "Connected successfully" . "<br>";
-print "DEBUG END" . "<br>";
+// print "Connected successfully" . "<br>";
+// print "DEBUG END" . "<br>";
 

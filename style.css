@@ -1,9 +1,16 @@
 
 
-* {
-    cursor:url('assets/cursors/01_aqua.cur'), auto;
+/*change cursor for text-like elements*/
+input[type="text"], textarea, p, h1, h2, h3, h4, h5, h6 {
+    cursor:url('assets/cursors/01_aqua_text.cur'), auto;
 }
-/*body style*/
+
+/*change cursor for interactive elements*/
+a, button, input[type="button"], input[type="submit"], select, [onclick], span {
+    cursor:url('assets/cursors/01_aqua_pointer.cur'), auto;
+}
+
+
 body {
     /*visual properties*/
     font-family: 'apple-system', sans-serif;
@@ -12,31 +19,67 @@ body {
     color:white;
 
     /*spacing*/
-    margin-left: 15%;
-    margin-right:15%;
+    margin-left: 10%;
+    margin-right:10%;
     margin-top: 5%;
     margin-bottom: 5%;
+
+    /*cursor*/
+    cursor:url('assets/cursors/01_aqua.cur'), auto; /*change cursor for all elements in body*/
 }
 
 .container {
-    /*nothing*/
+    /*positioning*/
+    /* items on one line until page full */
+    display: flex;
+    flex-wrap: wrap;
+
+    /*spacing*/
+    gap: 25px;
 }
 
-.song {
-    /*align items vertically*/
+.songCard {
+    /*positioning*/
     display: flex;
     align-items: center;
+    justify-content: space-between;
 
     /*spacing*/
     margin-bottom: 25px;
-    /*add fixed space between items*/
-    gap: 15px;
+    gap: 40px; /*add fixed space between items*/
+
+    /*border*/
+    border-style: solid;
+    border-color: white;
+    border-radius: 15px;
+
+    /*size*/
+    width: 350px;
+    height: 125px;
+
+    /*visual properties*/
+    background-color: #171717;
+
+    /*cursor*/
+    cursor:url('assets/cursors/01_aqua_pointer.cur'), auto;
+}
+
+.songDetails {
+    /* for clarity */
+}
+
+.songImg {
+    /* for clarity */
 }
 
 .thumbnail {
     /*size*/
-    width: 50px;
-    height: 50px;
+    width: auto;
+    height: 125px;
+
+    /*border*/
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 .detailsButton {
@@ -53,6 +96,57 @@ body {
     /*spacing*/
     padding: 5px;
 
-    /*cursor*/
-    cursor:url('assets/cursors/01_aqua_pointer.cur'), auto;
+    
+}
+
+/*modal*/
+.modal {
+    /*positioning*/
+    display: none; /*hidden by default*/
+    z-index: 1; /*on top*/
+    /*center*/
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    transform: translate(-50%, -50%);
+
+    /*visual properties*/
+    background-color: rgba(0,0,0,0.5); /*black bg with 50% opacity*/
+
+    /*size*/
+    width: 100%;
+    height: 100%; 
+}
+
+.modal-content {
+    /*visual properties*/
+    color:white;
+    background-color: #171717;
+
+    /*spacing*/
+    margin: 15% auto;
+    padding: 20px;
+
+    /*border*/
+    border: 1px solid #888;
+
+    /*size*/
+    width:fit-content;
+    height:fit-content;
+}
+
+.close {
+    /*visual properties*/
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+
+    /*positioning*/
+    float: right;
+}
+
+.close:hover,
+.close:focus {
+    /*visual properties*/
+    color: black;
 }
