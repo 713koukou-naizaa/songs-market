@@ -3,6 +3,7 @@ session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $productId = $_POST['id'];
+    $quantity = $_POST['quantity'];
 
     // init cart if not exists
     if (!isset($_SESSION['cart'])) {
@@ -11,9 +12,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // add product to cart
     if (isset($_SESSION['cart'][$productId])) {
-        $_SESSION['cart'][$productId]++;
+        $_SESSION['cart'][$productId] += $quantity;
     } else {
-        $_SESSION['cart'][$productId] = 1;
+        $_SESSION['cart'][$productId] = $quantity;
     }
 
     // redirect back to cart page

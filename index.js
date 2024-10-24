@@ -1,10 +1,10 @@
 
 // wait for DOM to load
 document.addEventListener('DOMContentLoaded', function() {
-    const modal = document.getElementById('myModal');
+    const modal = document.getElementById('songDetailsModal');
     const closeModal = document.querySelector('.close');
-    const songDetailsModal = document.getElementById('songDetailsModal');
-    const songImgModal = document.getElementById('songImgModal');
+    const songDetailsModalTitle = document.getElementById('songDetailsModalTitle');
+    const songDetailsModalImg = document.getElementById('songDetailsModalImg');
 
     // open modal
     const songCards = document.querySelectorAll('.songCard');
@@ -19,8 +19,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const songDetails = songTitle + ' - ' + songArtist;
             const songSecondaryDetails = songPrice + '€' + '<br>' + songDuration + ' min';
             
-            songDetailsModal.innerHTML = songDetails + '<br>' + songSecondaryDetails
-            songImgModal.setAttribute('src', songImg);
+            songDetailsModalTitle.innerHTML = songDetails + '<br>' + songSecondaryDetails
+            songDetailsModalImg.setAttribute('src', songImg);
         });
     });
 

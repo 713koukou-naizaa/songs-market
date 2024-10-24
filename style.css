@@ -1,4 +1,5 @@
 
+/* CURSORS START */
 
 /*change cursor for text-like elements*/
 input[type="text"], textarea, p, h1, h2, h3, h4, h5, h6 {
@@ -6,11 +7,13 @@ input[type="text"], textarea, p, h1, h2, h3, h4, h5, h6 {
 }
 
 /*change cursor for interactive elements*/
-a, button, input[type="button"], input[type="submit"], select, [onclick], span {
+a, button, input[type="button"], input[type="submit"], [onclick], span {
     cursor:url('assets/cursors/01_aqua_pointer.cur'), auto;
 }
 
+/* CURSORS END */
 
+/* GENERAL START */
 body {
     /*visual properties*/
     font-family: 'apple-system', sans-serif;
@@ -28,27 +31,7 @@ body {
     cursor:url('assets/cursors/01_aqua.cur'), auto; /*change cursor for all elements in body*/
 }
 
-.container {
-    /*positioning*/
-    /* items on one line until page full */
-    display: flex;
-    flex-wrap: wrap;
-
-    /*spacing*/
-    gap: 25px;
-}
-
-.song {
-    /* positioning */
-    flex-direction: column;
-    text-align: center;
-
-    /*spacing*/
-    margin-bottom: 25px;
-    gap: 40px; /*add fixed space between items*/
-}
-
-.addToCart {
+.defaultButton {
     /*visual properties*/
     background-color: black;
     color:rgb(255, 88, 255);
@@ -60,6 +43,35 @@ body {
     border-style: solid;
 }
 
+.defaultButton:hover {
+    background-color: rgb(226, 78, 226);
+    color: black;
+}
+
+.container {
+    /*positioning*/
+    /* items on one line until page full */
+    display: flex;
+    flex-wrap: wrap;
+
+    /*spacing*/
+    gap: 25px;
+}
+
+/* GENERAL END */
+
+/* SONG START */
+.song {
+    /* positioning */
+    flex-direction: column;
+    text-align: center;
+
+    /*spacing*/
+    margin-bottom: 25px;
+    gap: 40px; /*add fixed space between items*/
+}
+
+/* SONG CARD START */
 .songCard {
     /*positioning*/
     display: flex;
@@ -104,7 +116,11 @@ body {
     border-bottom-right-radius: 10px;
 }
 
-/*modal*/
+/* SONG CARD END */
+
+/* SONG END */
+
+/* SONG DETAILS MODAL START */
 .modal {
     /*positioning*/
     display: none; /*hidden by default*/
@@ -156,22 +172,10 @@ body {
     color: black;
 }
 
-/*addToCartPopup*/
-.addToCartPopup {
-    /*positioning*/
-    display: none; /*hidden by default*/
-    z-index: 1; /*on top*/
-    /*center*/
-    position: absolute;
-    left: 50%;
-    top: 25%;
-    transform: translate(-50%, -50%);
+/* SONG DETAILS MODAL END */
 
-    /*size*/
-    width: 100%;
-    height: 100%; 
-}
 
+/* CART TABLE START*/
 .cartTable {
     /*spacing*/
     margin-bottom: 25px;
@@ -183,7 +187,6 @@ body {
     border: 1px solid #ddd;
 
     /*size*/
-    height: 300px;
     overflow-y: scroll;
 }
 
@@ -197,4 +200,18 @@ body {
     /*visual properties*/
     text-align: center;
 }
+
+/* CART TABLE END*/
+
+/* CHECKOUT FORM START*/
+.checkoutForm {
+    /*positioning*/
+    display: none; /*hidden by default*/
+}
+
+.checkoutFormContent {
+    /* for clarity */
+}
+
+/* CHECKOUT FORM END*/
 
