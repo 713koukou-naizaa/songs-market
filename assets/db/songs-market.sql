@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 22, 2024 at 01:44 PM
+-- Generation Time: Oct 25, 2024 at 06:05 PM
 -- Server version: 8.3.0
 -- PHP Version: 8.2.18
 
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `songs_table` (
   `price` int NOT NULL,
   `audio_path` varchar(165) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `icon_path` varchar(150) NOT NULL,
-  `duration` varchar(4) NOT NULL,
+  `duration` varchar(4) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
