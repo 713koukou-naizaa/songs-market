@@ -1,9 +1,9 @@
 <?php
 
-$lakartxelaCurrentDB="ehamid_pro";
-$lakartxelaHost="lakartxela.iutbayonne.univ-pau.fr";
-$lakartxelaUsername="ehamid_pro";
-$lakartxelaPassword="ehamid_pro";
+// $lakartxelaCurrentDB="ehamid_pro";
+// $lakartxelaHost="lakartxela.iutbayonne.univ-pau.fr";
+// $lakartxelaUsername="ehamid_pro";
+// $lakartxelaPassword="ehamid_pro";
 
 $localCurrentDB="songs-market";
 $localHost="localhost";
