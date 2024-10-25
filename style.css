@@ -107,10 +107,6 @@ body {
 }
 
 .thumbnail {
-    /*size*/
-    width: auto;
-    height: 125px;
-
     /*border*/
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;

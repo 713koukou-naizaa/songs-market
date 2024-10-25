@@ -17,7 +17,8 @@ foreach ($rows as $row) {
     $file = $row['audio_path'];
     $info = $getID3->analyze($file);
 
-    $query = "UPDATE {$tableName} SET duration = '{$info['playtime_string']}' WHERE id = '{$row['id']}'";
+    if (isset($info['playtime_seconds'])) { $query = "UPDATE {$tableName} SET duration = '{$info['playtime_string']}' WHERE id = '{$row['id']}'"; }
+    else { $query = "UPDATE {$tableName} SET duration = 0 WHERE id = '{$row['id']}'"; }
     $result = mysqli_query($conn, $query) or die("Query failed: " . mysqli_error($conn));
 }
 mysqli_close($conn);
@@ -37,6 +38,12 @@ mysqli_close($conn);
 
 <body>
     <audio autoplay><source src="assets/minato-aqua-hello.mp3" type="audio/mpeg"></audio>
+    <header>
+        <form ACTION="backOfficeEntry.php" METHOD="POST">
+            <input type="text" placeholder="Username" name="username">
+            <input type="password" placeholder="Password" name="password">
+        <button class="defaultButton" type="submit">Login</button>
+    </header>
 
     <!-- SONGS -->
     <h1>Songs</h1>
@@ -67,9 +74,11 @@ mysqli_close($conn);
                         data-duration='{$duration}'>
                             Artist: {$artist}<br>Title: {$title}
                         </div>";
-        
+
+                        $resizedImageHeight=125;
+                        $resizedImageWidth=$resizedImageHeight;
                         echo "<div class='songImg'>
-                            <img class='thumbnail' src='{$img_path}' alt='{$title} icon'>
+                            <img class='thumbnail' src='resizeImage.php?file=$img_path&width={$resizedImageHeight}&height={$resizedImageHeight}' alt='{$title} icon'>
                         </div>";
                     echo "</div>";
 
