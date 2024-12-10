@@ -18,6 +18,6 @@ password : tamanegi
 This project uses a php dependency and works with composer, please refer to the composer.json file.
 
 ## Assets
-The songs and icons are both in the assets for under the songs folder.
+The songs and icons are both in the assets folder under the songs folder.
 The custom cursors are under assets/cursors.
 The sound playing on load of index.php is located inside the assets folder.
